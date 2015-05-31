@@ -1,0 +1,11 @@
+union {
+  std::string
+  int32_t
+}
+option {
+  name Namespace
+  namespace {
+    Foo
+    Bar
+  }
+}

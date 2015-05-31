@@ -1,0 +1,13 @@
+{
+  "union": [
+    "std::string",
+    "int32_t"
+  ],
+  "option": {
+    "name": "Json",
+    "namespace": [
+      "Foo",
+      "Bar"
+    ]
+  }
+}

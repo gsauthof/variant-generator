@@ -1,0 +1,12 @@
+union {
+  std::string
+  int32_t
+  Foo
+  Bar
+}
+option {
+  name Basic_Variant
+  include {
+    "<test/helper.hh>"
+  }
+}

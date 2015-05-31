@@ -1,0 +1,8 @@
+union {
+  std::string
+  int32_t
+}
+option {
+  name Var
+  default_constructor false
+}

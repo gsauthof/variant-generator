@@ -1,0 +1,12 @@
+union {
+  std::string
+  int32_t
+  "std::pair<const char*, const char *>"
+}
+option {
+  name Variant
+  copy true
+  move true
+  value_copy true
+  value_move true
+}
