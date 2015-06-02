@@ -205,6 +205,7 @@ static string mk_name(const string &x)
 static bool is_elementary(const string &s)
 {
   static const set<string> types = {
+    "bool",
     "char",
     "unsigned char",
     "int",
