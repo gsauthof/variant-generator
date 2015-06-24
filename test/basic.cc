@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_SUITE(variant)
         {
           Foo f(is_destructed);
           Basic_Variant v(std::move(f));
-          v.visit(visitor);
+          v.accept(visitor);
         }
         BOOST_CHECK_EQUAL(visitor.x, 0);
         BOOST_CHECK_EQUAL(visitor.y, 1);
@@ -122,9 +122,9 @@ BOOST_AUTO_TEST_SUITE(variant)
           {
             Collect_Value c1;
             Collect_Value c2;
-            v1.visit(c1);
+            v1.accept(c1);
             BOOST_CHECK_EQUAL(c1.foo_i, 32);
-            v2.visit(c2);
+            v2.accept(c2);
             BOOST_CHECK_EQUAL(c2.foo_i, 42);
           }
           v1 = std::move(v2);
@@ -132,9 +132,9 @@ BOOST_AUTO_TEST_SUITE(variant)
           BOOST_CHECK_EQUAL(is_destructed2, false);
           Collect_Value c1;
           Collect_Value c2;
-          v1.visit(c1);
+          v1.accept(c1);
           BOOST_CHECK_EQUAL(c1.foo_i, 42);
-          v2.visit(c2);
+          v2.accept(c2);
           BOOST_CHECK_EQUAL(c2.foo_i, 0);
         }
         BOOST_CHECK_EQUAL(is_destructed1, false);
@@ -155,9 +155,9 @@ BOOST_AUTO_TEST_SUITE(variant)
           {
             Collect_Value c1;
             Collect_Value c2;
-            v1.visit(c1);
+            v1.accept(c1);
             BOOST_CHECK_EQUAL(c1.foo_i, 32);
-            v2.visit(c2);
+            v2.accept(c2);
             BOOST_CHECK_EQUAL(c2.bar_i, 42);
           }
           v1 = std::move(v2);
@@ -165,9 +165,9 @@ BOOST_AUTO_TEST_SUITE(variant)
           BOOST_CHECK_EQUAL(is_destructed2, false);
           Collect_Value c1;
           Collect_Value c2;
-          v1.visit(c1);
+          v1.accept(c1);
           BOOST_CHECK_EQUAL(c1.bar_i, 42);
-          v2.visit(c2);
+          v2.accept(c2);
           BOOST_CHECK_EQUAL(c2.bar_i, 0);
         }
         BOOST_CHECK_EQUAL(is_destructed1, true);
@@ -178,14 +178,14 @@ BOOST_AUTO_TEST_SUITE(variant)
       {
         Basic_Variant v;
         Collect_Value c;
-        BOOST_CHECK_THROW(v.visit(c), std::domain_error);
+        BOOST_CHECK_THROW(v.accept(c), std::domain_error);
       }
 
       BOOST_AUTO_TEST_CASE(throw_default_apply)
       {
         Basic_Variant v;
         Collect_Value c;
-        BOOST_CHECK_THROW(v.visit(c), std::domain_error);
+        BOOST_CHECK_THROW(v.accept(c), std::domain_error);
       }
 
       BOOST_AUTO_TEST_CASE(apply)
@@ -193,12 +193,12 @@ BOOST_AUTO_TEST_SUITE(variant)
         Basic_Variant v("Hello ");
         {
           Collect_Value c;
-          v.visit(c);
+          v.accept(c);
           BOOST_CHECK_EQUAL(c.s, "Hello ");
         }
         v.apply(Update_String());
         Collect_Value c;
-        v.visit(c);
+        v.accept(c);
         BOOST_CHECK_EQUAL(c.s, "Hello World");
       }
 

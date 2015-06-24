@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_SUITE(variant)
         Foo::Bar::Json v(32);
         Collect_Value c;
         BOOST_CHECK_EQUAL(c.i32, 0);
-        v.visit(c);
+        v.accept(c);
         BOOST_CHECK_EQUAL(c.i32, 32);
       }
 

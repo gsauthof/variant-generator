@@ -410,8 +410,8 @@ void Header::write_public()
   write_value_copy_assignment();
   write_apply("apply", false, false);
   write_apply("apply", true, false);
-  write_apply("visit", false, true);
-  write_apply("visit", true, true);
+  write_apply("accept", false, true);
+  write_apply("accept", true, true);
 }
 void Header::write_value_move_constructor()
 {

@@ -41,14 +41,14 @@ BOOST_AUTO_TEST_SUITE(variant)
         Variant v(cs);
         {
           Get_String c;
-          v.visit(c);
+          v.accept(c);
           BOOST_CHECK_EQUAL(c.s, "Hello World");
         }
         const string ds("foo bar");
         v = ds;
         {
           Get_String c;
-          v.visit(c);
+          v.accept(c);
           BOOST_CHECK_EQUAL(c.s, "foo bar");
         }
       }
@@ -60,12 +60,12 @@ BOOST_AUTO_TEST_SUITE(variant)
         v = w;
         {
           Get_String c;
-          v.visit(c);
+          v.accept(c);
           BOOST_CHECK_EQUAL(c.s, "world");
         }
         {
           Get_String c;
-          w.visit(c);
+          w.accept(c);
           BOOST_CHECK_EQUAL(c.s, "world");
         }
       }
