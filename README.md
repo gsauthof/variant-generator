@@ -13,8 +13,6 @@ Georg Sauthoff <mail@georg.so>
 
 ## Example
 
-XXX extend read
-
 Input specification (`variant.inf`):
 
     union {
