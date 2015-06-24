@@ -1,0 +1,5 @@
+union {
+  std::string
+  uint32_t
+  int32_t
+}

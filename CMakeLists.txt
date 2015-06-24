@@ -32,6 +32,11 @@ set_property(TARGET mkvariant PROPERTY INCLUDE_DIRECTORIES
 #  ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+add_executable(example
+  example/main.cc
+  example/variant.cc
+)
+
 target_link_libraries(mkvariant
   ${Boost_REGEX_LIBRARY}
   ${Boost_SYSTEM_LIBRARY}
